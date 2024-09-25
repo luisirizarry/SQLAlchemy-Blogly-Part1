@@ -1,6 +1,6 @@
 """Blogly application."""
 
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User
 
@@ -15,10 +15,10 @@ debug = DebugToolbarExtension(app)
 
 connect_db(app)
 
-app.route('/')
+@app.route('/')
 def home():
     """Home page"""
-    return redirect("/users")
+    return redirect('/users')
 
 @app.route('/users')
 def list_users():
