@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <img src="{{user.image_url}}" alt="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png">
+    <div>
+        <h1>{{ user.get_full_name() }}</h1>
+        <form action="/users/{{user.id}}/edit">
+            <button>Edit</button>    
+        </form>
+        <form action="/users/{{user.id}}/delete" method="POST">
+            <button>Delete</button>    
+        </form>
+    </div>
+    <a href="/users">Go Back</a>
+{% endblock %}
